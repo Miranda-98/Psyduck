@@ -17,11 +17,8 @@
 
 <?php
 
-// require 'Usuario.php';
-// require 'Animal.php';
+
 require 'Adopcion.php';
-
-
 
 $usuario = new Usuario('marcos','pedrino','hombre','amapola 13','918476638',34,'protectora_animales');
 
@@ -43,6 +40,6 @@ echo "<br/>";echo "<br/>";
  $prueba->crear();
  echo "<br/>";echo "<br/>";
  print_r($prueba);
-$prueba->set_razon('pepito');
+$prueba->__set('razon','pepito');
 $prueba->actualizar();
 ?>

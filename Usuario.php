@@ -10,7 +10,7 @@ class Usuario extends Crud {
     private $direccion;
     private $telefono;
     private $edad;
-   // private $conexion;
+    private $conexion;
     public static $TABLA = 'usuarios';
 
     function __construct ($nombre, $apellido, $sexo, $direccion, $telefono, $edad, $conexion){
@@ -22,7 +22,7 @@ class Usuario extends Crud {
         $this->direccion=$direccion;
         $this->telefono=$telefono;
         $this->edad=$edad;
-        //$this->conexion=$conexion;
+        $this->conexion=parent::conectar();
 
     }
 // Metodos Magicos
@@ -38,7 +38,7 @@ class Usuario extends Crud {
 
     function crear (){
         try{
-        $conn=parent::conectar();
+        $conn=$this->conexion;
 //RECOGEMOS EL MAXIMO IF Y LO GUARDAMOS EN LAS PROPIEDADES DE LA INSTANCIA
         $sql="SELECT MAX(id) from usuarios;";
         $stmt = $conn->prepare($sql);
@@ -54,7 +54,7 @@ class Usuario extends Crud {
         $stmt->bindParam(':D', $this->direccion);
         $stmt->bindParam(':E', $this->telefono);
         $stmt->execute();
-            return 'insertado';
+            //return 'insertado';
         }catch(PDOException $e){
             return "Error: " . $e->getMessage();
         }
@@ -62,8 +62,8 @@ class Usuario extends Crud {
 
     function actualizar (){
         try{
-        $conn =parent::conectar();
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $conn=$this->conexion;
+        //$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $sql = "UPDATE usuarios SET nombre=:A, apellido=:B, sexo=:C, direccion=:E, telefono=:F WHERE id=:D";
         $stms = $conn->prepare($sql);
         $stms->bindParam(':A', $this->nombre);
@@ -74,7 +74,8 @@ class Usuario extends Crud {
         $stms->bindParam(':F', $this->telefono);
     
         if($stms->execute())
-        ECHO  "El usuario se ha Actualizado correctamente";
+        //ECHO  "El usuario se ha Actualizado correctamente"
+        ;
         }catch(PDOException $e){
             return "Error: " . $e->getMessage();
         }

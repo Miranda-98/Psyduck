@@ -9,7 +9,7 @@ class Adopcion extends Crud {
     private $fecha;
     private $razon;
     
-   // private $conexion;
+    private $conexion;
     public static $TABLA = 'adopcion';
 
     function __construct ($idanimal, $idusuario, $fecha, $razon, $conexion){
@@ -21,64 +21,75 @@ class Adopcion extends Crud {
         $this->razon=$razon;
         // $this->color=$color;
         // $this->edad=$edad;
-        //$this->conexion=$conexion;
+        $this->conexion=parent::conectar();
 
     }
-//ID
-    public function get_id () {
-        return $this->Id;
+
+    // Metodos Magicos
+    function __get($valor)
+    {
+        return $this->$valor;
     }
 
-    public function set_id ($id) {
-        $this->Id=$id;
+    function __set($valor, $nuevoValor)
+    {
+        $this->$valor = $nuevoValor;
     }
-//IDANIMAL
-    public function get_idanimal () {
-        return $this->idanimal;
-    }
+// //ID
+//     public function get_id () {
+//         return $this->Id;
+//     }
 
-    public function set_idanimal ($idanimal) {
-        $this->idanimal=$idanimal;
-    }
-//ISUSUARIO
-    public function get_idusuario () {
-        return $this->idusuario;
-    }
+//     public function set_id ($id) {
+//         $this->Id=$id;
+//     }
+// //IDANIMAL
+//     public function get_idanimal () {
+//         return $this->idanimal;
+//     }
 
-    public function set_idusuario ($idusuario) {
-        $this->idusuario=$idusuario;
-    }
-//FECHA
-    public function get_fecha () {
-        return $this->fecha;
-    }
+//     public function set_idanimal ($idanimal) {
+//         $this->idanimal=$idanimal;
+//     }
+// //ISUSUARIO
+//     public function get_idusuario () {
+//         return $this->idusuario;
+//     }
 
-    public function set_fecha ($fecha) {
-        $this->fecha=$fecha;
-    }
-//RAZON
-    public function get_genero () {
-        return $this->genero;
-    }
+//     public function set_idusuario ($idusuario) {
+//         $this->idusuario=$idusuario;
+//     }
+// //FECHA
+//     public function get_fecha () {
+//         return $this->fecha;
+//     }
 
-    public function set_genero ($genero) {
-        $this->genero=$genero;
-    }
+//     public function set_fecha ($fecha) {
+//         $this->fecha=$fecha;
+//     }
+// //RAZON
+//     public function get_genero () {
+//         return $this->genero;
+//     }
 
-//CONEXION
-    public function get_razon () {
-        return $this->razon;
-    }
+//     public function set_genero ($genero) {
+//         $this->genero=$genero;
+//     }
 
-    public function set_razon ($razon) {
-        $this->razon=$razon;
-    }
+// //CONEXION
+//     public function get_razon () {
+//         return $this->razon;
+//     }
+
+//     public function set_razon ($razon) {
+//         $this->razon=$razon;
+//     }
 
 
 
     function crear (){
         try{
-        $conn=parent::conectar();
+        $conn=$this->conexion;
 //RECOGEMOS EL MAXIMO IF Y LO GUARDAMOS EN LAS PROPIEDADES DE LA INSTANCIA
         $sql="SELECT MAX(id) from adopcion;";
         $stmt = $conn->prepare($sql);
@@ -93,7 +104,7 @@ class Adopcion extends Crud {
         $stmt->bindParam(':C', $this->fecha);
         $stmt->bindParam(':D', $this->razon);
         $stmt->execute();
-            echo 'insertado';
+            //echo 'insertado';
         }catch(PDOException $e){
             echo "Error: " . $e->getMessage();
         }
@@ -101,8 +112,8 @@ class Adopcion extends Crud {
 
     function actualizar (){
         try{
-        $conn =parent::conectar();
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $conn=$this->conexion;
+       //$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $sql = "UPDATE adopcion SET idAnimal=:A, idUsuario=:B, fecha=:C, razon=:E WHERE id=:D";
         $stms = $conn->prepare($sql);
         $stms->bindParam(':A', $this->idanimal);
@@ -112,7 +123,8 @@ class Adopcion extends Crud {
         $stms->bindParam(':E', $this->razon);
     
         if($stms->execute())
-        ECHO  "La adopcion se ha Actualizado correctamente";
+        //ECHO  "La adopcion se ha Actualizado correctamente"
+        ;
         }catch(PDOException $e){
             return "Error: " . $e->getMessage();
         }
