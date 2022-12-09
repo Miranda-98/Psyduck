@@ -23,20 +23,20 @@ require 'Adopcion.php';
 
 
 
-$usuario = new Usuario('marcos','pedrino','hombre','amapola 13','918476638',34,'protectora');
+$usuario = new Usuario('marcos','pedrino','hombre','amapola 13','918476638',34,'protectora_animales');
 
 // // print_r($usuario);
 // // echo "<br/>";
 $usuario->crear();
 
-$usuario2 = new Animal('thor','pez','comun','femenino','naranja',3,'protectora');
+$usuario2 = new Animal('thor','pez','comun','femenino','naranja',3,'protectora_animales');
 echo "<br/>";echo "<br/>";
 // //print_r($usuario);
 // // echo "<br/>";
  $usuario2->crear();
  print_r($usuario2);
  echo "<br/>";echo "<br/>";
- $prueba = new Adopcion($usuario2->__get('Id'),$usuario->__get('Id'),'2022-12-07','regalo','protectora');
+ $prueba = new Adopcion($usuario2->__get('Id'),$usuario->__get('Id'),'2022-12-07','regalo','protectora_animales');
  echo "<br/>";echo "<br/>";
  print_r($prueba);
  echo "<br/>";echo "<br/>";

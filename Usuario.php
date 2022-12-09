@@ -48,7 +48,7 @@ class Usuario extends Crud {
 //INSERTAMOS EN LA BD CON LOS VALORES
         $sql="INSERT INTO usuarios (nombre, apellido,sexo,direccion, telefono) VALUES (:A,:B,:C,:D,:E)";
         $stmt = $conn->prepare($sql);
-        $stmt->bindParam(':A', $this->__get('nombre'));
+        $stmt->bindParam(':A', $this->nombre);
         $stmt->bindParam(':B', $this->apellido);
         $stmt->bindParam(':C', $this->sexo);
         $stmt->bindParam(':D', $this->direccion);
