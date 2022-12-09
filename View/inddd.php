@@ -18,7 +18,7 @@
 <?php
 
 
-require 'Adopcion.php';
+require '../Model/Adopcion.php';
 
 $usuario = new Usuario('marcos','pedrino','hombre','amapola 13','918476638',34,'protectora_animales');
 
