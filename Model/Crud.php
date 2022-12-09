@@ -4,17 +4,18 @@ require 'Conexion.php';
 abstract class Crud extends Conexion{
 
     private $tabla;
-    //private $conexion;
+    private $conexion;
 
     function __construct ($con,$tabla){
         parent::__construct($con);
         $this->tabla=$tabla;
+        $this->conexion=parent::conectar();
     }
 
 
     public function obtieneTodos (){
         try {
-            $conn=parent::conectar();
+            $conn=$this->conexion;
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $sql= "SELECT * FROM $this->tabla ";
             $stmt = $conn->prepare($sql);
@@ -29,8 +30,8 @@ abstract class Crud extends Conexion{
 
     public function obtienedeid ($id) {
         try{
-            $conn=parent::conectar();
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $conn=$this->conexion;
+            //$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $sql= "SELECT * FROM $this->tabla WHERE id=$id ";
             $stmt = $conn->prepare($sql);
             $stmt->execute();
