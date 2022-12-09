@@ -36,7 +36,7 @@ echo "<br/>";echo "<br/>";
  $usuario2->crear();
  print_r($usuario2);
  echo "<br/>";echo "<br/>";
- $prueba = new Adopcion($usuario2->get_id(),$usuario->get_id(),'2022-12-07','regalo','protectora');
+ $prueba = new Adopcion($usuario2->__get('Id'),$usuario->__get('Id'),'2022-12-07','regalo','protectora');
  echo "<br/>";echo "<br/>";
  print_r($prueba);
  echo "<br/>";echo "<br/>";

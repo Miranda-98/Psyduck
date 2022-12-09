@@ -25,6 +25,16 @@ class Animal extends Crud {
         //$this->conexion=$conexion;
 
     }
+    // Metodos Magicos
+    function __get($valor)
+    {
+        return $this->$valor;
+    }
+
+    function __set($valor, $nuevoValor)
+    {
+        $this->$valor = $nuevoValor;
+    }
 //ID
     public function get_id () {
         return $this->Id;
