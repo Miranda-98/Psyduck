@@ -1,1 +1,4 @@
 Aquí podemos dejarnos tareas o cosas que decirnos
+
+G: El drawio se abre desde el explorador de archivos
+Probe un par de cosas a ver si funcionaba, si ves que tal borralas

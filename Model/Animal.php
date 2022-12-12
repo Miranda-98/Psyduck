@@ -1,5 +1,6 @@
 <?php
-require 'Usuario.php';
+//require 'Usuario.php';
+require_once "Crud.php";
 
 class Animal extends Crud {
     
@@ -36,6 +37,36 @@ class Animal extends Crud {
         $this->$valor = $nuevoValor;
     }
 
+    function datosTablaAnimal() {
+        echo "<table border=solid black 1px>
+        <th colspan=11>TABLA CLIENTE</th>
+                    <tr>
+                        <td>ID</td>
+                        <td>NOMBRE</td>
+                        <td>ESPECIE</td>
+                        <td>RAZA</td>
+                        <td>GÉNERO</td>
+                        <td>COLOR</td>
+                        <td>EDAD</td>
+                    </tr>"; 
+        try{
+            $conn=$this->conexion;
+            $sql = "SELECT * from ".self::$TABLA;
+            $result = $conn->query($sql);
+            foreach($result as $fila) {
+                echo " <tr>
+                    <td>".$fila['id']."</td>", 
+                    "<td>".$fila['nombre']."</td>", 
+                    "<td>".$fila['especie']."</td>", 
+                    "<td>".$fila['raza']."</td>", 
+                    "<td>".$fila['genero']."</td>", 
+                    "<td>".$fila['color']."</td>", 
+                    "<td>".$fila['edad']."</td>";
+            }
+        } catch(PDOException $e) {
+            echo "Error: " . $e->getMessage();
+        }
+    }
 
     function crear (){
         try{
@@ -89,8 +120,8 @@ class Animal extends Crud {
 
 }
 
-//$usuario = new Animal('pepe','pez','comun','femenino','naranja',3,'protectora');
-
+// $usuario = new Animal('pepe','pez','comun','femenino','naranja',3,'protectora_animales');
+// $usuario->datosTablaAnimal();
 //print_r($usuario);
 // echo "<br/>";
 // $usuario->crear();

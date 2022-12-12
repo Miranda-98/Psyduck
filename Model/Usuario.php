@@ -1,5 +1,7 @@
 <?php
-require 'Crud.php';
+//require 'Crud.php';
+require "Crud.php";
+
 
 class Usuario extends Crud {
     
@@ -35,6 +37,36 @@ class Usuario extends Crud {
         {
             $this->$valor = $nuevoValor;
         }
+
+
+    function datosTablaUsuario() {
+        echo "<table border=solid black 1px>
+        <th colspan=11>TABLA CLIENTE</th>
+                    <tr>
+                        <td>ID</td>
+                        <td>NOMBRE</td>
+                        <td>APELLIDO</td>
+                        <td>SEXO</td>
+                        <td>DIRECCION</td>
+                        <td>TELEFONO</td>
+                    </tr>"; 
+        try{
+            $conn=$this->conexion;
+            $sql = "SELECT * from ".self::$TABLA;
+            $result = $conn->query($sql);
+            foreach($result as $fila) {
+                echo " <tr>
+                    <td>".$fila['id']."</td>", 
+                    "<td>".$fila['nombre']."</td>", 
+                    "<td>".$fila['apellido']."</td>", 
+                    "<td>".$fila['sexo']."</td>", 
+                    "<td>".$fila['direccion']."</td>", 
+                    "<td>".$fila['telefono']."</td>";
+            }
+        } catch(PDOException $e) {
+            echo "Error: " . $e->getMessage();
+        }
+    }
 
     function crear (){
         try{

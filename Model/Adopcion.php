@@ -1,5 +1,7 @@
 <?php
-require 'Animal.php';
+//require 'Animal.php';
+require "Crud.php";
+
 
 class Adopcion extends Crud {
     
@@ -86,6 +88,32 @@ class Adopcion extends Crud {
 //     }
 
 
+    function datosTablaAdopcion() {
+        echo "<table border=solid black 1px>
+        <th colspan=11>TABLA CLIENTE</th>
+                <tr>
+                    <td>ID</td>
+                    <td>ID ANIMAL</td>
+                    <td>ID USUARIO</td>
+                    <td>FECHA</td>
+                    <td>RAZON</td>
+                </tr>"; 
+    try{
+        $conn=$this->conexion;
+        $sql = "SELECT * from ".self::$TABLA;
+        $result = $conn->query($sql);
+        foreach($result as $fila) {
+            echo " <tr>
+                <td>".$fila['id']."</td>", 
+                "<td>".$fila['idAnimal']."</td>", 
+                "<td>".$fila['idUsuario']."</td>", 
+                "<td>".$fila['fecha']."</td>", 
+                "<td>".$fila['razon']."</td>";
+        }
+    } catch(PDOException $e) {
+        echo "Error: " . $e->getMessage();
+    }
+}
 
     function crear (){
         try{
