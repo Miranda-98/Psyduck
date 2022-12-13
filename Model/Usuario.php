@@ -41,7 +41,7 @@ class Usuario extends Crud {
 
     function datosTablaUsuario() {
         echo "<table border=solid black 1px>
-        <th colspan=11>TABLA CLIENTE</th>
+        <th colspan=11>TABLA USUARIO</th>
                     <tr>
                         <td>ID</td>
                         <td>NOMBRE</td>

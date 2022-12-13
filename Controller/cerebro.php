@@ -3,25 +3,20 @@
     require "../Model/Adopcion.php";
 
     $tablaSeleccionada = $_POST['opcion'];
-    echo "p " . $tablaSeleccionada;
 
-    function mostrarTabla($tabla = "animales")
-    {
-        $sql = "SELECT * FROM $tabla";
-    }
 
     if ($tablaSeleccionada == 'animales') {
         function datosTablaAnimal()
         {
-            $usuario = new Animal('', '', '', '', '', '', 'protectora_animales');
-            echo $usuario->datosTablaAnimal();
+            $usuario = new Animal('pepe ', '', '', '', '', '', 'protectora_animales');
+            $usuario->datosTablaAnimal();
         }
         datosTablaAnimal();
     } else if ($tablaSeleccionada == 'adopcion') {
         function datosTablaAdp()
         {
             $usuario = new Adopcion('', '', '', '', 'protectora_animales');
-            echo $usuario->datosTablaAdopcion();
+            $usuario->datosTablaAdopcion();
             
         }
         datosTablaAdp();
@@ -29,7 +24,7 @@
         function datosTablaUser()
         {
             $usuario = new Usuario('','','','','','','protectora_animales');
-            echo $usuario->datosTablaUsuario();
+            $usuario->datosTablaUsuario();
         }
         datosTablaUser();
     }
