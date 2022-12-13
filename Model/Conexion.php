@@ -14,7 +14,7 @@
                     $conn = new PDO ("mysql:host=localhost;dbname=$cone;charset=utf8",$this->usuario,$this->clave);
                     //asignamos el modo excepción
                     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                    //echo "conexion realizada";
+                    echo "conexion realizada";
                     return $conn;
                 }catch (PDOException $e){
                     echo "No conecta la base";

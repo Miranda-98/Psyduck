@@ -1,6 +1,6 @@
 <?php
 //require 'Usuario.php';
-require_once "Crud.php";
+require_once "Usuario.php";
 
 class Animal extends Crud {
     
