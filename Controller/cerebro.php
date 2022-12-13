@@ -9,10 +9,13 @@
     }
 
     if($tablaSeleccionada == 'animales'){
-        function datosTablaAnimal(){}
+        function datosTablaAni(){
+            $animal = new Animal('','','','','','','protectora_animales');
+           $animal.datosTablaAnimal();
+        }
     } else if($tablaSeleccionada == 'adopcion') {
         function datosTablaAdopcion(){}
     } else {
         function datosTablaUsuario(){}
     }
-?>
+?> 
