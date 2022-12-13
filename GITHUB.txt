@@ -12,3 +12,6 @@
 *fusionar ramas sin vim -> git merge nombreRama -m 'mensaje'
 
 *fusionar desde master a rama de trabajo -> git merge master -m 'mensaje'
+
+desde la rama master se hace el merge a la rama donde estan los cambios
+para que estos cambios aparezcan en el repositorio hay que hacer un push desde master
