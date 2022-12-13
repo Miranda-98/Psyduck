@@ -6,7 +6,7 @@
 
 
 
-=======
+
     if ($tablaSeleccionada == 'animales') {
         function datosTablaAnimal()
         {
@@ -22,7 +22,7 @@
             
         }
         datosTablaAdp();
->>>>>>> 82211a7f40b084b6e1a9c20e663e4180f4e25d75
+
     } else {
         function datosTablaUser()
         {
@@ -31,7 +31,4 @@
         }
         datosTablaUser();
     }
-<<<<<<< HEAD
 ?> 
-=======
->>>>>>> 82211a7f40b084b6e1a9c20e663e4180f4e25d75
