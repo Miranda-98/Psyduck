@@ -1,0 +1,14 @@
+*mostrar rama existentes -> git branch (la que aparece en verde es la rama en la que estas)
+
+*crear rama -> git branch nombreRama
+
+*cambiar de rama -> git checkout nombreRama
+
+*crear rama y moverte a ella directamente -> git checkout -b nombreRama
+
+*fusionar ramas -> git merge nombreRama 
+    (se fusiona la rama con la master) -> seleccionar los cambios deseados y guardarlos
+
+*fusionar ramas sin vim -> git merge nombreRama -m 'mensaje'
+
+*fusionar desde master a rama de trabajo -> git merge master -m 'mensaje'
