@@ -1,6 +1,6 @@
 <?php
 //require 'Animal.php';
-require "Crud.php";
+require_once "Animal.php";
 
 
 class Adopcion extends Crud {
@@ -90,7 +90,7 @@ class Adopcion extends Crud {
 
     function datosTablaAdopcion() {
         echo "<table border=solid black 1px>
-        <th colspan=11>TABLA CLIENTE</th>
+        <th colspan=11>TABLA ADOPCION</th>
                 <tr>
                     <td>ID</td>
                     <td>ID ANIMAL</td>
