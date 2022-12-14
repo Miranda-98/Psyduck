@@ -20,7 +20,7 @@ echo "<a href='../View/Inicio.html'>Inicio</a>";
             $x->tabla_Animales();
 
         }else if ($valor==='usuario'){
-            echo "<a href=''>Nueva Entrada</a>";
+            echo "<br> <a href=''>Nueva Entrada</a>";
             $x = new Controlador_Usuario();
             $x->tabla_Usuarios();
 
