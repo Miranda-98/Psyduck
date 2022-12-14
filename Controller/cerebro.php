@@ -1,13 +1,12 @@
 <?php
-    require "../Model/Animal.php";
+    require "../Controller/Controlador_Animal.php";
     require "../Model/Adopcion.php";
     //require "../View/vistaAnimal.php";
 
     $tablaSeleccionada = $_POST['opcion'];
 
     if(isset($_POST['mostrarBoton'])){
-        $animal = new Animal('pepe ', '', '', '', '', '', 'protectora_animales');
-        $x = new Controlador_Animal($animal);
+        $x = new Controlador_Animal();
         $x->animalesTabla();
         // if ($tablaSeleccionada == 'animales') {
         //     function datosTablaAnimal()
