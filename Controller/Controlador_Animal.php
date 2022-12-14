@@ -50,4 +50,3 @@ class Controlador_Animal extends Animal{
     // $firulais = new Controlador_Animal($f);
     // $firulais->mostrar_Animales();
     // $firulais->animalesTabla();
-?>
