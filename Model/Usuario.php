@@ -41,15 +41,8 @@ class Usuario extends Crud {
 
     function datosTablaUsuario() {
    
-        try{
-            $conn=$this->conexion;
-            $sql = "SELECT * from ".self::$TABLA;
-            $result = $conn->query($sql);
-            return $result;
-
-        } catch(PDOException $e) {
-            echo "Error: " . $e->getMessage();
-        }
+        $registros=parent::obtieneTodos();
+        return $registros;
     }
 
     function crear (){

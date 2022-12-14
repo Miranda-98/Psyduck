@@ -23,7 +23,7 @@ class Controlador_Usuario extends Usuario{
                         <td>DIRECCION</td>
                         <td>TELEFONO</td>
                         </tr>";
-            $result=$pepo->obtieneTodos();
+            $result=$pepo->datosTablaUsuario();
             foreach($result as $x) {
                 echo " <tr>
                 <td>".$x->id."</td>", 
@@ -33,11 +33,20 @@ class Controlador_Usuario extends Usuario{
                 "<td>".$x->direccion."</td>", 
                 "<td>".$x->telefono."</td>", 
                 //"<td>".$x->edad."</td>",
-                "<td><a href='GDHDF'>Editar</a></td>",
-                "<td><a href='GGH'>Borrar</a></td>";
+                "<td><a href='GDHDF?ID PARA PODER ENSEÑAR LOS DATOS'>Editar</a></td>",
+                "<td><a href='GGH?ID PARA PODER SABER A QUIEN BORRAR'>Borrar</a></td>";
             "</tr>";      
         }
         echo "</table>";
+
+    }
+
+    function editar_usuarios() {
+//UTILIZAR LA FUNCION ACTUALIZAR DE USUARIOS
+    }
+
+    function borrar_usuarios() {
+//UTILIZAR LA FUNCION BORRAR DE CRUD
 
     }
 }

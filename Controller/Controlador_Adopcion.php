@@ -22,7 +22,7 @@ class Controlador_Adopcion extends Adopcion{
                     <td>FECHA</td>
                     <td>RAZON</td>
                 </tr>"; 
-            $result=$pepo->obtieneTodos();
+            $result=$pepo->datosTablaAdopcion();
             foreach($result as $x) {
                 echo " <tr>
                 <td>".$x->id."</td>", 
@@ -30,11 +30,21 @@ class Controlador_Adopcion extends Adopcion{
                 "<td>".$x->idUsuario."</td>", 
                 "<td>".$x->fecha."</td>", 
                 "<td>".$x->razon."</td>", 
-                "<td><a href='GDHDF'>Editar</a></td>",
-                "<td><a href='GGH'>Borrar</a></td>";
+                "<td><a href='GDHDF?ID PARA PODER ENSEÑAR LOS DATOS'>Editar</a></td>",
+                "<td><a href='GGH??ID PARA PODER SABER A QUIEN BORRAR'>Borrar</a></td>";
             "</tr>";      
         }
         echo "</table>";
+
+    }
+
+    function editar_Adopcion () {
+//UTILIZAR LA FUNCION ACTUALIZAR DE ADOPCION
+
+    }
+
+    function borrar_Adopcion () {
+//UTILIZAR LA FUNCION BORRAR DE CRUD
 
     }
 }

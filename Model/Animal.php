@@ -38,16 +38,9 @@ class Animal extends Crud {
     }
 
     function datosTablaAnimal() {
+        $registros=parent::obtieneTodos();
+        return $registros;
  
-        try{
-            $conn=$this->conexion;
-            $sql = "SELECT * from ".self::$TABLA;
-            $result = $conn->query($sql);
-            return $result;
-
-        } catch(PDOException $e) {
-            echo "Error: " . $e->getMessage();
-        }
     }
 
 

@@ -24,7 +24,7 @@ class Controlador_Animal extends Animal{
                             <td>COLOR</td>
                             <td>EDAD</td>
                         </tr>";
-            $result=$pepo->obtieneTodos();
+            $result=$pepo->datosTablaAnimal();
             foreach($result as $x) {
                 echo " <tr>
                 <td>".$x->id."</td>", 
@@ -34,11 +34,21 @@ class Controlador_Animal extends Animal{
                 "<td>".$x->genero."</td>", 
                 "<td>".$x->color."</td>", 
                 "<td>".$x->edad."</td>",
-                "<td><a href='GDHDF'>Editar</a></td>",
-                "<td><a href='GGH'>Borrar</a></td>";
+                "<td><a href='GDHDF?ID PARA PODER ENSEÑAR LOS DATOS'>Editar</a></td>",
+                "<td><a href='GGH?ID PARA PODER SABER A QUIEN BORRAR'>Borrar</a></td>";
             "</tr>";      
         }
         echo "</table>";
+
+    }
+
+    function editar_Animales () {
+//UTILIZAR LA FUNCION ACTUALIZAR DE ANIMALES
+
+    }
+
+    function borrar_Animales () {
+//UTILIZAR LA FUNCION BORRAR DE CRUD
 
     }
 }
