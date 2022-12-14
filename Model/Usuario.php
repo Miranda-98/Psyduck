@@ -40,29 +40,13 @@ class Usuario extends Crud {
 
 
     function datosTablaUsuario() {
-        echo "<table border=solid black 1px>
-        <th colspan=11>TABLA USUARIO</th>
-                    <tr>
-                        <td>ID</td>
-                        <td>NOMBRE</td>
-                        <td>APELLIDO</td>
-                        <td>SEXO</td>
-                        <td>DIRECCION</td>
-                        <td>TELEFONO</td>
-                    </tr>"; 
+   
         try{
             $conn=$this->conexion;
             $sql = "SELECT * from ".self::$TABLA;
             $result = $conn->query($sql);
-            foreach($result as $fila) {
-                echo " <tr>
-                    <td>".$fila['id']."</td>", 
-                    "<td>".$fila['nombre']."</td>", 
-                    "<td>".$fila['apellido']."</td>", 
-                    "<td>".$fila['sexo']."</td>", 
-                    "<td>".$fila['direccion']."</td>", 
-                    "<td>".$fila['telefono']."</td>";
-            }
+            return $result;
+
         } catch(PDOException $e) {
             echo "Error: " . $e->getMessage();
         }
@@ -113,18 +97,6 @@ class Usuario extends Crud {
         }
     }
 
-
-
-
 }
 
-// $usuario = new Usuario('gavi','pedrino','hombre','amapola 13','918476638',34,'protectora');
-
-// // print_r($usuario);
-// // echo "<br/>";
-//  $usuario->crear();
-// print_r($usuario);
-
-// $usuario->set_sexo('Mujer');
-// $usuario->actualizar();
 ?>

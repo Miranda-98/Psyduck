@@ -12,7 +12,7 @@ class Animal extends Crud {
     private $color;
     private $edad;
     private $conexion;
-    public static $TABLA = 'animales';
+    public static $TABLA = 'animal';
 
     function __construct ($nombre, $especie, $raza, $genero, $color, $edad, $conexion){
         parent::__construct($conexion,self::$TABLA);
@@ -38,35 +38,18 @@ class Animal extends Crud {
     }
 
     function datosTablaAnimal() {
-        echo "<table border=solid black 1px>
-        <th colspan=11>TABLA CLIENTE</th>
-                    <tr>
-                        <td>ID</td>
-                        <td>NOMBRE</td>
-                        <td>ESPECIE</td>
-                        <td>RAZA</td>
-                        <td>GÉNERO</td>
-                        <td>COLOR</td>
-                        <td>EDAD</td>
-                    </tr>"; 
+ 
         try{
             $conn=$this->conexion;
             $sql = "SELECT * from ".self::$TABLA;
             $result = $conn->query($sql);
-            foreach($result as $fila) {
-                echo " <tr>
-                    <td>".$fila['id']."</td>", 
-                    "<td>".$fila['nombre']."</td>", 
-                    "<td>".$fila['especie']."</td>", 
-                    "<td>".$fila['raza']."</td>", 
-                    "<td>".$fila['genero']."</td>", 
-                    "<td>".$fila['color']."</td>", 
-                    "<td>".$fila['edad']."</td>";
-            }
+            return $result;
+
         } catch(PDOException $e) {
             echo "Error: " . $e->getMessage();
         }
     }
+
 
     function crear (){
         try{
@@ -115,18 +98,7 @@ class Animal extends Crud {
         }
     }
 
-
-
-
 }
 
-// $usuario = new Animal('pepe','pez','comun','femenino','naranja',3,'protectora_animales');
-// $usuario->datosTablaAnimal();
-//print_r($usuario);
-// echo "<br/>";
-// $usuario->crear();
-//  print_r($usuario);
 
-// $usuario->set_genero('masculino');
-// $usuario->actualizar();
 ?>

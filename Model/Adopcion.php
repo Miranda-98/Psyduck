@@ -37,79 +37,15 @@ class Adopcion extends Crud {
     {
         $this->$valor = $nuevoValor;
     }
-// //ID
-//     public function get_id () {
-//         return $this->Id;
-//     }
-
-//     public function set_id ($id) {
-//         $this->Id=$id;
-//     }
-// //IDANIMAL
-//     public function get_idanimal () {
-//         return $this->idanimal;
-//     }
-
-//     public function set_idanimal ($idanimal) {
-//         $this->idanimal=$idanimal;
-//     }
-// //ISUSUARIO
-//     public function get_idusuario () {
-//         return $this->idusuario;
-//     }
-
-//     public function set_idusuario ($idusuario) {
-//         $this->idusuario=$idusuario;
-//     }
-// //FECHA
-//     public function get_fecha () {
-//         return $this->fecha;
-//     }
-
-//     public function set_fecha ($fecha) {
-//         $this->fecha=$fecha;
-//     }
-// //RAZON
-//     public function get_genero () {
-//         return $this->genero;
-//     }
-
-//     public function set_genero ($genero) {
-//         $this->genero=$genero;
-//     }
-
-// //CONEXION
-//     public function get_razon () {
-//         return $this->razon;
-//     }
-
-//     public function set_razon ($razon) {
-//         $this->razon=$razon;
-//     }
-
 
     function datosTablaAdopcion() {
-        echo "<table border=solid black 1px>
-        <th colspan=11>TABLA ADOPCION</th>
-                <tr>
-                    <td>ID</td>
-                    <td>ID ANIMAL</td>
-                    <td>ID USUARIO</td>
-                    <td>FECHA</td>
-                    <td>RAZON</td>
-                </tr>"; 
+
     try{
         $conn=$this->conexion;
         $sql = "SELECT * from ".self::$TABLA;
         $result = $conn->query($sql);
-        foreach($result as $fila) {
-            echo " <tr>
-                <td>".$fila['id']."</td>", 
-                "<td>".$fila['idAnimal']."</td>", 
-                "<td>".$fila['idUsuario']."</td>", 
-                "<td>".$fila['fecha']."</td>", 
-                "<td>".$fila['razon']."</td>";
-        }
+        return $result;
+
     } catch(PDOException $e) {
         echo "Error: " . $e->getMessage();
     }
@@ -158,18 +94,6 @@ class Adopcion extends Crud {
         }
     }
 
-
-
-
 }
 
-//$usuario = new Animal('pepe','pez','comun','femenino','naranja',3,'protectora');
-
-//print_r($usuario);
-// echo "<br/>";
-// $usuario->crear();
-//  print_r($usuario);
-
-// $usuario->set_genero('masculino');
-// $usuario->actualizar();
 ?>
