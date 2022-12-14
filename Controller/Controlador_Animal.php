@@ -23,7 +23,7 @@ class Controlador_Animal extends Animal{
         $obj = $objControlador->mostrar_Animales();
 
         echo "<table border=solid black 1px>
-        <th colspan=11>TABLA CLIENTE</th>
+        <th colspan=11>TABLA ANIMALES</th>
                     <tr>
                         <td>ID</td>
                         <td>NOMBRE</td>
@@ -46,7 +46,8 @@ class Controlador_Animal extends Animal{
     }
     
 }
-    $f = new Animal('pepe ', '', '', '', '', '', 'protectora_animales');
-    $firulais = new Controlador_Animal($f);
-    $firulais->mostrar_Animales();
+    // $f = new Animal('pepe ', '', '', '', '', '', 'protectora_animales');
+    // $firulais = new Controlador_Animal($f);
+    // $firulais->mostrar_Animales();
+    // $firulais->animalesTabla();
 ?>

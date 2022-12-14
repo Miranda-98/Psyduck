@@ -1,9 +1,12 @@
 <?php
-    require "../Model/Animal.php";
-    require "../Model/Adopcion.php";
+    //require "../Model/Animal.php";
+    //require "../Model/Adopcion.php";
+    require "../Controller/Controlador_Animal.php";
     //require "../View/vistaAnimal.php";
 
     $tablaSeleccionada = $_POST['opcion'];
+
+
 
     if(isset($_POST['mostrarBoton'])){
         $animal = new Animal('pepe ', '', '', '', '', '', 'protectora_animales');
@@ -33,10 +36,11 @@
         //     }
         //     datosTablaUser();
         // }
-    } else {
-        header('location: ../View/index.html');
-        die();
     }
+    //  else {
+    //     header('location: ../View/index.html');
+    //     die();
+    // }
 
 
 ?> 
