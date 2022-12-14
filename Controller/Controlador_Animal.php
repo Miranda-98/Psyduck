@@ -6,7 +6,7 @@ class Controlador_Animal extends Animal{
     private $animal;
 
     function __construct ($animal){
-        $this->animal=new Animal('', '', '', '', '', '', 'protectora_animales');
+        $this->animal=$animal;
     }
 
     function mostrar_Animales(){
@@ -18,6 +18,7 @@ class Controlador_Animal extends Animal{
         return $x;
     }
     function animalesTabla(){
+        //Por parámetro debería ir el value de controlador?????
         $animal = new Animal('pepe ', '', '', '', '', '', 'protectora_animales');
         $objControlador = new Controlador_Animal($animal);
         $obj = $objControlador->mostrar_Animales();
