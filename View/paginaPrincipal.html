@@ -9,15 +9,15 @@
 <body>
     <h1>Protectora de animales</h1>
     <h4>Selecciona una tabla</h4>
-    <form method="Post" action="../Controller/cerebro.php">
+    <form method="POST" action="../Controller/cerebro.php">
         <select name="opcion" id="selectorOpciones">
             <option value="animales">Animales</option>
             <option value="adopcion">Adopción</option>
             <option value="usuario">Usuario</option>
         </select>
-        <!-- <button type="submit" id="mostrar">Mostrar tabla</button>
-        <button type="submit" id="añadir">Añadir tabla</button>
-        <button type="submit" id="modificar">Modificar tabla</button> -->
+        <button type="submit" name="mostrarBoton">Mostrar tabla</button>
+        <button type="submit" name="añadirBoton">Añadir tabla</button>
+        <button type="submit" name="modificarBoton">Modificar tabla</button>
     </form>
 </body>
 </html>

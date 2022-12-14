@@ -12,7 +12,7 @@ class Animal extends Crud {
     private $color;
     private $edad;
     private $conexion;
-    public static $TABLA = 'animal';
+    public static $TABLA = 'animales';
 
     function __construct ($nombre, $especie, $raza, $genero, $color, $edad, $conexion){
         parent::__construct($conexion,self::$TABLA);
