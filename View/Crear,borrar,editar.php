@@ -10,11 +10,12 @@
     <?php
     require '../Controller/Controlador_Animal.php';
     $value=$_GET['value'];
-    $id=$_GET['id'];
+    
     if ($value=='crear'){
-
+        $x = new Controlador_Animal();
+        $x->crear_Animales();
     }else if ($value=='editar'){
-       
+        $id=$_GET['id'];
         $x = new Controlador_Animal();
             $x->editar_Animales();
        
