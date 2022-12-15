@@ -38,7 +38,7 @@ class Controlador_Animal extends Animal
             "<td>" . $x->color . "</td>",
             "<td>" . $x->edad . "</td>",
             "<td><a href='../View/Crear,borrar,editar.php?id=$x->id & value=editar'>Editar</a></td>",
-            "<td><a href='GGH?ID PARA PODER SABER A QUIEN BORRAR'>Borrar</a></td>";
+            "<td><a href='../View/Crear,borrar,editar.php?id=$x->id & value=borrar'>Borrar</a></td>";
             "</tr>";
         }
         echo "</table>";
@@ -108,6 +108,26 @@ class Controlador_Animal extends Animal
         function borrar_Animales()
         {
             //UTILIZAR LA FUNCION BORRAR DE CRUD
+            $pepo = $this->animal;
+            $id=$_GET['id'];
+            $html = "<h1>¿Seguro que desea borrar este animal?</h1>";
+            $html .= "<form  method='post'>";
+            $html .= "<input type='submit' name='btnAceptar' value='Aceptar'>";
+            $html .= "<input type='submit' name='btnBorrar' value='Cancelar'>";
+            $html .= "</form>";
+            echo $html;
+            
+            if(isset($_POST['btnAceptar'])){
+
+            $result=$pepo->borrar($id);
+            header("location:../Controller/core.php?valor=animal&controlador=controlador");
+
+            }else if (isset($_POST['btnBorrar'])){
+                header("location:../Controller/core.php?valor=animal&controlador=controlador");
+
+            }
+
+            
 
         }
     

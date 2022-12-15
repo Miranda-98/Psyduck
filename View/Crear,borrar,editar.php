@@ -19,8 +19,10 @@
         $x = new Controlador_Animal();
             $x->editar_Animales();
        
-    }else {
-
+    }else if($value=='borrar'){
+        $id=$_GET['id'];
+        $x = new Controlador_Animal();
+            $x->borrar_Animales();
     }
     ?>
 </body>
