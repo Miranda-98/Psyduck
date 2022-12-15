@@ -8,13 +8,9 @@
 </head>
 <body>
     <?php
-    if (isset($_post['crear'])){
-
-    }else if ($_post['editar']){
-
-    }else {
-
-    }
+        require "../Controller/Controlador_Animal.php";
+        $x = new Controlador_Animal();
+        $x->crearAnimales();
     ?>
 </body>
 </html>

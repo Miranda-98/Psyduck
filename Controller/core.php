@@ -10,12 +10,12 @@ $controlador=($_GET['controlador']);
         header("location:../View/Inicio.html");
 
     }else{
-echo "<a href='../View/Inicio.html'>Inicio</a>";
+        echo "<a href='../View/Inicio.html'>Inicio</a>";
 
         $valor=($_GET['valor']);
 
         if($valor=='animal'){
-            echo "<br> <a href=''>Nueva Entrada</a>";
+            echo "<br> <a href='../View/Crear,borrar,editar.php'>Nueva Entrada</a>";
             $x = new Controlador_Animal();
             $x->tabla_Animales();
 
