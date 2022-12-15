@@ -37,8 +37,8 @@ class Controlador_Animal extends Animal
             "<td>" . $x->genero . "</td>",
             "<td>" . $x->color . "</td>",
             "<td>" . $x->edad . "</td>",
-            "<td><a href='../View/Crear,borrar,editar.php?id=$x->id & value=editar'>Editar</a></td>",
-            "<td><a href='../View/Crear,borrar,editar.php?id=$x->id & value=borrar'>Borrar</a></td>";
+            "<td><a href='Controlador_Vista_Animal.php?id=$x->id & value=editar'>Editar</a></td>",
+            "<td><a href='Controlador_Vista_Animal.php?id=$x->id & value=borrar'>Borrar</a></td>";
             "</tr>";
         }
         echo "</table>";
@@ -62,13 +62,14 @@ class Controlador_Animal extends Animal
         $html .= "Edad: <input type='text' name='edad' value='" . $result[0]->edad . "'><br><br/>";
         $html .= "<input type='submit' name='btnModificar' value='Modificar'>";
         $html .= "</fieldset></form>";
+        $html .= "<a href='../Controller/core.php?controlador=controlador&valor=animal'>Volver</a>";
         echo $html;
         
                 if(isset($_POST['btnModificar'])){
                     $pepe= new Animal($_POST['nombre'],$_POST['especie'],$_POST['raza'],$_POST['genero'],$_POST['color'],$_POST['edad'],'protectora_animales');
                     $pepe->__set('Id',$_POST['hiddenId']);
                     $pepe->actualizar();
-                    header("location:../Controller/core.php?valor=animal&controlador=controlador");
+                    header("location:core.php?valor=animal&controlador=controlador");
                 }
 
             }
@@ -100,8 +101,9 @@ class Controlador_Animal extends Animal
         "</form>";
 
         if (isset($_POST['botonEnviar'])) {
-            $this->animal->crear();
-            header("location:../Controller/core.php?valor=animal&controlador=controlador");
+            $pepe= new Animal($_POST['nombre'],$_POST['especie'],$_POST['raza'],$_POST['genero'],$_POST['color'],$_POST['edad'],'protectora_animales');
+            $pepe->crear();
+            header("location:core.php?valor=animal&controlador=controlador");
         }
     }
 
@@ -119,11 +121,11 @@ class Controlador_Animal extends Animal
             
             if(isset($_POST['btnAceptar'])){
 
-            $result=$pepo->borrar($id);
-            header("location:../Controller/core.php?valor=animal&controlador=controlador");
+            $pepo->borrar($id);
+            header("location:core.php?valor=animal&controlador=controlador");
 
             }else if (isset($_POST['btnBorrar'])){
-                header("location:../Controller/core.php?valor=animal&controlador=controlador");
+                header("location:core.php?valor=animal&controlador=controlador");
 
             }
 

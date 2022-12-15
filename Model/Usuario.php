@@ -15,7 +15,7 @@ class Usuario extends Crud {
     private $conexion;
     public static $TABLA = 'usuarios';
 
-    function __construct ($nombre, $apellido, $sexo, $direccion, $telefono, $edad, $conexion){
+    function __construct ($nombre, $apellido, $sexo, $direccion, $telefono, $conexion){
         parent::__construct($conexion,self::$TABLA);
         //$this->Id=$id;
         $this->nombre=$nombre;
@@ -23,7 +23,7 @@ class Usuario extends Crud {
         $this->sexo=$sexo;
         $this->direccion=$direccion;
         $this->telefono=$telefono;
-        $this->edad=$edad;
+        //$this->edad=$edad;
         $this->conexion=parent::conectar();
 
     }

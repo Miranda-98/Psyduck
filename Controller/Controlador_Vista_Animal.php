@@ -8,21 +8,21 @@
 </head>
 <body>
     <?php
-    require '../Controller/Controlador_Adopcion.php';
-    echo 'pepeeeeeeeeeeee '.$_GET['value'];
+    require 'Controlador_Animal.php';
     $value=$_GET['value'];
     
     if ($value=='crear'){
-        echo "addd";
-        $x = new Controlador_Adopcion();
-        $x->crear_Adopcion();
+        $x = new Controlador_Animal();
+        $x->crear_Animales();
     }else if ($value=='editar'){
         $id=$_GET['id'];
-        $x = new Controlador_Adopcion();
-        $x->editar_Adopcion();
+        $x = new Controlador_Animal();
+            $x->editar_Animales();
        
-    }else {
-        echo "pepe";
+    }else if($value=='borrar'){
+        $id=$_GET['id'];
+        $x = new Controlador_Animal();
+            $x->borrar_Animales();
     }
     ?>
 </body>

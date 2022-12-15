@@ -1,6 +1,6 @@
 <?php
 
-require "../Model/Adopcion.php";
+require "Controlador_Animal.php";
 
 class Controlador_Adopcion extends Adopcion{
 
@@ -30,8 +30,8 @@ class Controlador_Adopcion extends Adopcion{
                 "<td>".$x->idUsuario."</td>", 
                 "<td>".$x->fecha."</td>", 
                 "<td>".$x->razon."</td>", 
-                "<td><a href='../View/CRUD_ADOPCION.php ? id=$x->id & value=editar'>Editar</a></td>",
-                "<td><a href='GGH??ID PARA PODER SABER A QUIEN BORRAR'>Borrar</a></td>";
+                "<td><a href='Controlador_Vista_Adopcion.php ? id=$x->id & value=editar'>Editar</a></td>",
+                "<td><a href='Controlador_Vista_Adopcion.php ? id=$x->id & value=borrar'>Borrar</a></td>";
             "</tr>";      
         }
         echo "</table>";
@@ -50,27 +50,26 @@ class Controlador_Adopcion extends Adopcion{
         $html .="<input type='hidden' name='hiddenId' value='" . $result[0]->id . "'><br><br/>"; 
         $html .= "ID ANIMAL:  <input type='text' name='idAnimal' value='" . $result[0]->idAnimal . "'><br><br/>";
         $html .= "ID USUARIO: <input  type='text' name='idUsuario' value='" . $result[0]->idUsuario . "'><br><br/>" ;
-        $html .= "FECHA: <input type='text' name='fecha' value='" . $result[0]->fecha . "'><br><br/>";
+        $html .= "FECHA: <input type='date' name='fecha' value='" . $result[0]->fecha . "'><br><br/>";
         $html .= "RAZON: <input type='text' name='razon' value='" . $result[0]->razon . "'><br><br/>";
         $html .= "<input type='submit' name='btnModificar' value='Modificar'>";
         $html .= "</fieldset></form>";
+        $html .= "<a href='../Controller/core.php?controlador=controlador&valor=adopcion'>Volver</a>";
         echo $html;
         
                 if(isset($_POST['btnModificar'])){
                     $pepe= new Adopcion($_POST['idAnimal'],$_POST['idUsuario'],$_POST['fecha'],$_POST['razon'],'protectora_animales');
                     $pepe->__set('Id',$_POST['hiddenId']);
                     $pepe->actualizar();
-                    header("location:../Controller/core.php?valor=adopcion&controlador=controlador");
+                    header("location:core.php?valor=adopcion&controlador=controlador");
                 }
 
     }
 
     function crear_Adopcion()
     {
-        echo "<form method='POSTFNU' action=''>",
-        "<label for='nombre'> ID </label>",
-        "<input type='text' name='id' required/><br><br>",
-
+        echo "<form method='post' action=''>",
+        
         "<label for='especie'> ID ANIMAL </label>",
         "<input type='text' name='idAnimal' required/><br><br>",
 
@@ -79,9 +78,9 @@ class Controlador_Adopcion extends Adopcion{
 
 
         "<label for='genero'> FECHA </label>",
-        "<input type='text' name='fecha' required/><br><br>",
+        "<input type='date' name='fecha' required/><br><br>",
 
-        "<label for='nombre'> USUARIO </label>",
+        "<label for='nombre'> RAZON </label>",
         "<input type='text' name='razon' required/><br><br>",
 
 
@@ -90,13 +89,31 @@ class Controlador_Adopcion extends Adopcion{
         "</form>";
 
         if (isset($_POST['botonEnviar'])) {
-            $this->adopcion->crear();
-            header("location:../Controller/core.php?valor=adopcion&controlador=controlador");
+            $pepe= new Adopcion($_POST['idAnimal'],$_POST['idUsuario'],$_POST['fecha'],$_POST['razon'],'protectora_animales');
+            $pepe->crear();
+            header("location:core.php?valor=ninguno&controlador=controlador");
         }
     }
 
     function borrar_Adopcion () {
 //UTILIZAR LA FUNCION BORRAR DE CRUD
+            $pepo = $this->adopcion;
+            $id=$_GET['id'];
+            $html = "<h1>¿Seguro que desea borrar esta adopción?</h1>";
+            $html .= "<form  method='post'>";
+            $html .= "<input type='submit' name='btnAceptar' value='Aceptar'>";
+            $html .= "<input type='submit' name='btnBorrar' value='Cancelar'>";
+            $html .= "</form>";
+            echo $html;
+            
+            if(isset($_POST['btnAceptar'])){
 
+            $pepo->borrar($id);
+            header("location:core.php?valor=adopcion&controlador=controlador");
+
+            }else if (isset($_POST['btnBorrar'])){
+                header("location:core.php?valor=adopcion&controlador=controlador");
+
+            }
     }
 }
