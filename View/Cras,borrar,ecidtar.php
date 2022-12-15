@@ -8,10 +8,16 @@
 </head>
 <body>
     <?php
-    if (isset($_post['crear'])){
+    require '../Controller/Controlador_Animal.php';
+    $value=$_GET['value'];
+    $id=$_GET['id'];
+    if ($value=='crear'){
 
-    }else if ($_post['editar']){
-
+    }else if ($value=='editar'){
+       
+        $x = new Controlador_Animal();
+            $x->editar_Animales();
+       
     }else {
 
     }
