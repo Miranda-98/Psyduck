@@ -8,9 +8,19 @@
 </head>
 <body>
     <?php
-        require "../Controller/Controlador_Animal.php";
+    require '../Controller/Controlador_Animal.php';
+    $value=$_GET['value'];
+    $id=$_GET['id'];
+    if ($value=='crear'){
+
+    }else if ($value=='editar'){
+       
         $x = new Controlador_Animal();
-        $x->crearAnimales();
+            $x->editar_Animales();
+       
+    }else {
+
+    }
     ?>
 </body>
 </html>
