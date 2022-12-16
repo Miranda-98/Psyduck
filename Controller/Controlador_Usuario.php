@@ -1,6 +1,7 @@
 <?php
 
 require "Controlador_Adopcion.php";
+require "../View/Estilos.php";
 
 class Controlador_Usuario extends Usuario{
 

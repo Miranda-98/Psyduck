@@ -1,6 +1,7 @@
 <?php
 
 require "../Model/Adopcion.php";
+require "../View/Estilos.php";
 
 class Controlador_Animal extends Animal
 {
